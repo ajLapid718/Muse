@@ -10,6 +10,7 @@ gem 'haml'
 gem 'simple_form'
 gem 'devise'
 gem 'paperclip'
+gem 'coffee-script-source', '~> 1.8.0'
 #Gem Additions Above
 
 
