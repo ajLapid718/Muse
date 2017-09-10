@@ -8,7 +8,7 @@ class PostsController < ApplicationController
 
   def show
     # @comments = @post.comments
-    @post = Comment.where(post_id: @post)
+    @comments = Comment.where(post_id: @post)
   end
 
   def new
