@@ -47,7 +47,7 @@ class PostsController < ApplicationController
   end
 
   def downvote
-    @post.upvote_by current_user
+    @post.downvote_by current_user
     redirect_back(fallback_location: root_path)
   end
 
