@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
   belongs_to :user
+  has_many :comments, dependent: :destroy
 
   has_attached_file :image
   # , styles: { medium: "700x500#>", small: "350x250>" }
