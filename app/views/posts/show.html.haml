@@ -7,7 +7,7 @@
 %p
   = pluralize(@post.get_upvotes.count, "Like")
 %p
-  = pluralize(@post.get_downvotes.count, "Dislikes")
+  = pluralize(@post.get_downvotes.count, "Dislike")
 
 = link_to "Like", like_post_path(@post), method: :get
 = link_to "Dislike", dislike_post_path(@post), method: :get
