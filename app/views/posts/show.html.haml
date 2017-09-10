@@ -38,10 +38,10 @@
             %p.buttons
               %span
                 %i.fa.fa-comments-o
-                = pluralize(@post.comments.count, "Comment")
+                = pluralize(@random_post.comments.count, "Comment")
               %span
                 %i.fa.fa-thumbs-o-up
-                = pluralize(@post.get_likes.count, "Like")
+                = pluralize(@random_post.get_likes.count, "Like")
 #comments
   %h2.comment_count= pluralize(@post.comments.count, "Comment")
   - @comments.each do |comment|
