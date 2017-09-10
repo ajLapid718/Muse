@@ -5,7 +5,10 @@
     = @post.user.name
     about
     = time_ago_in_words(@post.created_at)
-= image_tag @post.image.url
+  .clearfix
+    .post_image_description
+      = image_tag @post.image.url
+      .description= simple_format(@post.description)
 
 %h1= @post.title
 %p= @post.link
