@@ -17,20 +17,14 @@
       = link_to dislike_post_path, method: :get, class: "data" do
         %i.fa.fa-thumbs-o-down
         = pluralize(@post.get_downvotes.count, "Dislike")
+      %p.data
+        %i.fa.fa-comments-o
+        = pluralize(@post.comments.count, "Comment")
+      - if @post.user == current_user
+        = link_to "Edit", edit_post_path(@post), class: "data"
+        = link_to "Delete", post_path(@post), method: :delete, data: { confirm: "Are you sure?" }, class: "data"
 
-%h1= @post.title
-%p= @post.link
-%p= @post.description
-%p= @post.user.name
-%p
-  = pluralize(@post.get_upvotes.count, "Like")
-%p
-  = pluralize(@post.get_downvotes.count, "Dislike")
-
-= link_to "Like", like_post_path(@post), method: :get
-= link_to "Dislike", dislike_post_path(@post), method: :get
-
-#comment
+#comments
   %h2.comment_count= pluralize(@post.comments.count, "Comment")
   - @comments.each do |comment|
     .comment
@@ -38,7 +32,3 @@
       %p.content= comment.content
 
   = render 'comments/form'
-
-= link_to "Edit", edit_post_path(@post)
-= link_to "Delete", post_path(@post), method: :delete, data: { confirm: "Are you sure?" }
-= link_to "Home", root_path
